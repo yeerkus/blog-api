@@ -26,10 +26,11 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + "/public"))
 //------------API------------------
 app.use("/api/v1/blog", routes)
+app.use("/", express.static(__dirname + "./index.html"))
 
 //--------------------------------------
 app.get("/", (req, res)=>{
-    res.send("Hello, There!");
+    res.sendFile(__dirname + "/index.html");
 })
 
 app.listen(port, console.log(`Server running on ${port}`));
