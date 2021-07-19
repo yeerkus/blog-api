@@ -5,8 +5,7 @@ const app = express();
 const routes = require('./routes/article.routes');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 5050;
-const atlas_uri = "mongodb+srv://1234:1234@microservices.rjvap.mongodb.net/Blog?retryWrites=true&w=majority"
-const mongodb_uri = atlas_uri || process.env.MONGO_URI;
+const mongodb_uri = MONGO_ATLAS || process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose.connect(mongodb_uri,
