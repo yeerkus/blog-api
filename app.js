@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require("cors")
 const routes = require('./routes/article.routes');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 5050;
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json())
 
 //------------API------------------
+app.use(cors());
 app.use("/api/v1/blog", routes)
 
 //--------------------------------------
